@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Website1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: hotpink;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+   right: 25px;
+    font-size: 36px;
+	color:pink;
+}
+.opnbtn{
+	font-size:30px;
+	cursor:pointer;
+}
+
+		#Home{
+			display:inline-block;
+		}
+		.Section1,.Section2{
+			width:100%;
+			height:auto;
+			padding:0;
+			text-align:center;
+		}
+    .Section1{
+      height:627px
+    }
+		.centered{
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+  			color:white;
+  			text-align: center;
+		}
+		.centered h1{
+			font-size: 5rem;
+			font-style: Italic;
+		}
+		.btn{
+			color:#fff;
+			font-size: 14px;
+    	padding: 12px 20px;
+			font-weight:bold;
+			margin-top:50px;s
+		}
+		.btn-fill{
+			background-color:#e91e63;
+			position: relative;
+		    z-index: 1;
+		    border-radius: 4px;
+        text-color:white;
+		}
+		.fa{
+			font-size:25px;
+			padding:12px;
+      color:white;
+		}
+		.Section-padding{
+			padding:30px 0px;
+			width:100%;
+			text-align:center;
+		}
+		.underline{
+			background-color: #e91e63;
+		  transform: translateX(-50%);
+		  height: 1px;
+      width:10%;
+			position:absolute;
+      margin-left:42%;
+		}
+    .container p{
+        padding:20px;
+    }
+    .dot{
+      height: 50px;
+      width: 50px;
+      background-color: #e83e8c;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .bg-grey{
+      background-color:#f2f2f2;
+    }
+    .card{
+      height:300px;
+      box-shadow: 0 25px 35px -20px rgba(0,0,0,.35);
+    }
+    .card-img-top{
+      height:15em;
+    }
+    .pad{
+      padding: 15px;
+    }
+    .text{
+      text-align:left;
+    }
+  </style>
+</head>
+<body>
+<div>
+	<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 m-0 container-fluid">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 m-0 container-fluid">
+			<img id="About" class="Section1" src="Scene.jpg">
+			<div class="centered">
+				<h1>COMING SOON</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla neque tempore rerum dolore accusamus,eum, officia nostrum sequi explicabo aspernatur asperiores.</p>
+				<button type="button" class="btn btn-fill"><a href="#Contact">CONTACT US</a></button>
+				<button type="button" class="btn btn-outline-secondary">ABOUT US</button>
+				<div class-"row">
+					<i class="fa fa-facebook-official"></i>
+					<i class="fa fa-instagram"></i>
+					<i class="fa fa-linkedin-square"></i>
+					<i class="fa fa-google-plus-official"></i>
+					<i class="fa fa-twitter"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-sm fixed-top navbar-light container-fluid">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row">
+	  	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pr-0 m-0"><a class="navbar-brand" href="#"><h1>BOLT</h1></a></div>
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 p-0 m-0">
+		<div class="opnbtn" onclick="openNav()">&#9776; </div>
+			<div class="sidenav" id="mySidenav">
+	  			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  			<a href="#About">About</a>
+	  			<a href="#Services">Services</a>
+	  			<a href="#Team">Team</a>
+	  			<a href="#Contact">Contacts</a></div>
+			</div>
+
+			<script>
+				function openNav() {
+	    			document.getElementById("mySidenav").style.width = "250px";
+				}
+
+				function closeNav() {
+	    			document.getElementById("mySidenav").style.width = "0";
+				}
+			</script>
+
+
+</div></div>
+	</nav>
+</div>
+
+<div>
+	<div id="Services" class="Section2">
+	   <div class="container">
+		 <p>What We Do</p>
+		 <h2>We Provide Creative Solutions</h2>
+		 <div class="underline"></div>
+		 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Sed nulla neque tempore rerum dolore accusamus, eum, officia nostrum sequi explicabo aspernatur asperiores</p>
+		 </div>
+     <div class="container-fluid row col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 m-0">
+       <div class="container col-lg-4 col-md-4 col-sm-4 col-xs-4">
+         <span class="dot"><i class=" fa fa-laptop"></i></span>
+         <h2>Web Design</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+           Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.</p>
+       </div>
+       <div class="container col-lg-4 col-md-4 col-sm-4 col-xs-4">
+         <span class="dot"><i class=" fa fa-desktop"></i></span>
+         <h2>App Development</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+           Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.</p>
+       </div>
+       <div class="container col-lg-4 col-md-4 col-sm-4 col-xs-4">
+         <span class="dot"><i class=" fa fa-line-chart"></i></span>
+         <h2>Internet Marketing</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+           Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.</p>
+       </div>
+     </div>
+	</div>
+</div>
+
+<div>
+  <div id="Team" class="Section2 bg-grey">
+    <div class="container">
+ 		   <p>Meet our</p>
+ 		   <h2>Our Awesome Team</h2>
+ 		   <div class="underline"></div>
+ 		   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Sed nulla neque tempore rerum dolore accusamus, eum, officia nostrum sequi explicabo aspernatur asperiores</p>
+ 		 </div>
+     <div class="row m-0 pad container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="container col-lg-3 col-md-4 col-sm-3 col-xs-3">
+         <div class="card m-0">
+            <img class="card-img-top" src="Prodesign.jpg" alt="Card image cap">
+            <div class="card-body p-0">
+              <h5 class="card-title">EMILLY WILLIAMS</h5>
+              <p class="card-text p-0">Product Designer</p>
+            </div>
+          </div>
+       </div>
+       <div class="container col-lg-3 col-md-4 col-sm-3 col-xs-3">
+         <div class="card m-0">
+            <img class="card-img-top" src="Front.jpg" alt="Card image cap">
+            <div class="card-body p-0">
+              <h5 class="card-title">PATRIC GREEN</h5>
+              <p class="card-text p-0">Front-End Developer</p>
+            </div>
+          </div>
+       </div>
+       <div class="container col-lg-3 col-md-4 col-sm-3 col-xs-3">
+         <div class="card m-0">
+            <img class="card-img-top" src="Leadesign.jpg" alt="Card image cap">
+            <div class="card-body p-0">
+              <h5 class="card-title">PAUL KOWALSY</h5>
+              <p class="card-text p-0">Lead Designer</p>
+            </div>
+          </div>
+       </div>
+       <div class="container col-lg-3 col-md-4 col-sm-3 col-xs-3">
+         <div class="card m-0">
+            <img class="card-img-top" src="Back.jpg" alt="Card image cap">
+            <div class="card-body p-0">
+              <h5 class="card-title">JOHN DOE</h5>
+              <p class="card-text p-0">Back-End Developer</p>
+            </div>
+          </div>
+       </div>
+     </div>
+	</div>
+</div>
+
+<div>
+	<div id="Contact" class="Section2 container">
+    <div class="container-fluid">
+   		 <p>Connect With Us</p>
+   		 <h2>Get In Touch</h2>
+   	   <div class="underline"></div>
+   	   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+           Sed nulla neque tempore rerum dolore accusamus, eum, officia nostrum sequi explicabo aspernatur asperiores</p>
+   	</div>
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 container">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 p-0 m-0 ">
+        <form>
+          <div class="row text">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <label>Your Name</label>
+              <input type="text" class="form-control" id="name"  placeholder="First name">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <label>Your E-mail</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+          </div>
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 pad">
+            <label>Your Message</label>
+            <textarea class="form-control" id="message" rows="4"></textarea>
+          </div>
+          <div class="row container">
+            <button type="button" class="btn btn-fill m-0">Send Message</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad">
+        <div>
+          <h4>Address</h4>
+           <p class="p-0">1900 Pico Blvd,New York<br>Centernial, colorado</p>
+         </div>
+         <div>
+           <h4>Call Us</h4>
+           <p class="p-0">+48 123 456 789</p>
+         </div>
+         <div>
+           <h4>Say Hello</h4>
+           <p class="p-0">info@example.com</p>
+         </div>
+       </div>
+     </div>
+	</div>
+</div>
+</body>
+</html>

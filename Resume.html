@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Website2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.circular-menu {
+		  position: fixed;
+		  bottom: 19em;
+		  right: 15em;
+		}
+
+		.circular-menu .floating-btn {
+		  display: block;
+		  width: 3.5em;
+		  height: 3.5em;
+		  border-radius: 50%;
+		  color: #ff9c1b;
+		  text-align: center;
+		  line-height: 3.9;
+		  cursor: pointer;
+
+		}
+
+		.circular-menu.active .floating-btn {
+		  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
+		}
+
+		.circular-menu .floating-btn:active {
+		  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
+			opacity: 0.5;
+		}
+
+		.circular-menu .floating-btn i {
+		  font-size: 1.3em;
+		  transition: transform .2s;
+		}
+
+		.circular-menu:after {
+		  content: ' ';
+		  width: 5.5em;
+		  height: 5.5em;
+		  border-radius: 50%;
+		  position: absolute;
+		  top: -11px;
+		  right: -15px;
+		  z-index: -2;
+		  background-color: hsl(4, 98%, 60%);
+		  transition: all .3s ease;
+		}
+		.circular-menu.active:after {
+		  transform: scale3d(5.5, 5.5, 1);
+		  transition-timing-function: cubic-bezier(.68, 1.55, .265, 1);
+			opacity: 0.5;
+		}
+		.circular-menu .items-wrapper {
+		  padding: 0;
+		  margin: 0;
+		}
+
+		.circular-menu .menu-item {
+		  position: absolute;
+		  top: .2em;
+		  right: .2em;
+		  z-index: -1;
+		  display: block;
+		  text-decoration: none;
+		  color: hsl(0, 0%, 100%);
+		  font-size: 1em;
+		  width: 3em;
+		  height: 3em;
+		  border-radius: 50%;
+		  text-align: center;
+		  line-height: 3;
+		  background-color: hsla(0,0%,0%,.1);
+		  transition: transform .3s ease, background .2s ease;
+		}
+
+		.circular-menu .menu-item:hover {
+		  background-color: hsla(0,0%,0%,.3);
+		}
+
+		.circular-menu.active .menu-item {
+		  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		.circular-menu.circular-menu-left {
+		  right: auto;
+		  left: 1em;
+		}
+
+		.circular-menu.circular-menu-left .floating-btn {
+		  background-color: #ff8533;
+		}
+
+		.circular-menu.circular-menu-left:after {
+		  background-color: #ff8533;
+		}
+
+		.circular-menu.circular-menu-left.active .floating-btn i {
+		  transform: rotate(90deg);
+		}
+
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(1) {
+		  transform: translate3d(-1em,-12em,0);
+		}
+
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(2) {
+		  transform: translate3d(4.8em,-10.5em,0);
+		}
+
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(3) {
+		  transform: translate3d(9.5em,-6em,0);
+		}
+
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(4) {
+		  transform: translate3d(12.5em,-0.03em,0);
+		}
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(5) {
+		  transform: translate3d(10.5em,6em,0);
+		}
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(6) {
+		  transform: translate3d(5.5em,11.5em,0);
+		}
+		.circular-menu.circular-menu-left.active .menu-item:nth-child(7) {
+		  transform: translate3d(-1em,13em,0);
+		}
+		.Avatar {
+	  border-radius: 50%;
+		margin:13% 0 0 43%;
+		width:12.5em;
+		height:12.5em;
+		border: 0.375em solid white;
+	  }
+		.Details{
+			text-align:center;
+			color:white;
+			padding:1.25em;
+		 }
+		 .White{
+			 background-color: white;
+				width: 63em;
+				height: 34em;
+				margin: 3.0625em 0em 0em 19em;
+				padding:2.7em;
+		 }
+		 h3{
+			 margin-bottom: 1.1875em;
+		 }
+		 #about,#education,#work,#skills,#achievements,#contact,#portfolio{
+			display:none;
+		 }
+		 .Data{
+			 display: block;
+		 }
+		 .color{
+			 color:#f26522;
+		 }
+		 .card{
+			height:16rem;
+			box-shadow:0px 0px 19px 0px rgba(0,0,0,0.75);
+			margin:4rem 0 0 4rem;
+			z-index:0;
+		 }
+		 .image,.image1,.image2{
+		 	z-index:1;
+			position:absolute;
+
+		 }
+		 .image{
+		 	margin: 1.5em 0em 0em 9em;
+		 }
+		 .image1{
+		 	margin: 1.5em 0em 0em 26em;
+		 }
+		 .image2{
+		 	margin: 1.5em 0em 0em 44em;
+
+		 }
+		 .card-title{
+		 	margin-top:3rem;
+			color:#a0a0a0;
+		 }
+		 .socialmedia{
+		 	margin: 4rem 0rem 0rem 23rem;
+		 }
+		 .card-body{
+		 	padding:0.6em;
+		 }
+		 .port{
+		 	background-image:url("portfolio.jpg");
+			width: 63em;
+				height: 34em;
+				margin: 3.0625em 0em 0em 19em;
+				padding:2.7em;
+		 }
+		 .marg{
+		 	margin: 7em 0em 0em 1em;
+		 }
+		 .title{
+		 	font-size: 30px;
+			font-weight: bold;
+		 }
+		 .subtitle{
+		 font-size: 20px;
+			font-weight:bold;
+
+		 }
+		 .sub_text1{
+		 	font-size:18px;
+		 }
+		 .sub_text2{
+		 	font-size:16px;
+		 }
+		 .sub_text3{
+		 	font-size:14px;
+		 }
+		 .ht{
+		 	height:11em;
+		 }
+
+.main-timeline-section{
+  position: relative;
+  height:240px;
+}
+.main-timeline-section .timeline-start,
+.main-timeline-section .timeline-end{
+  position: absolute;
+  background:#F2635F;
+  border-radius:100px;
+  top:38%;
+  transform: translateY(-50%);
+  width:30px;
+  height:30px;
+}
+.main-timeline-section .timeline-end{
+  right:11em;
+}
+.main-timeline-section .conference-center-line{
+  position: absolute;
+  width:43em;
+  height:5px;
+  top:38%;
+  transform: translateY(-50%);
+  background:#F2635F;
+}
+.timeline-article{
+    width: 20%;
+    position: relative;
+    min-height: 229px;
+    float:right;
+}
+.timeline-article .content-date{
+    position: absolute;
+    top: 23%;
+    left: -10px;
+    font-size:18px;
+}
+.timeline-article .meta-date{
+    position: absolute;
+    top: 40%;
+    left: 0px;
+    transform: translateY(-50%);
+    width:20px;
+    height:20px;
+    border-radius: 100%;
+    background:#fff;
+    border:1px solid #F2635F;
+}
+.timeline-article .content-box{
+  position: absolute;
+  top: 43%;
+  left: -102px;
+  padding:10px;
+}
+.timeline-article-bottom .content-date{
+  top:44%;
+}
+.timeline-article-bottom .content-box{
+  top: 0%;
+}
+.padd{
+	margin-left:5em;
+}
+.cent{
+	text-align:center;
+}
+.box{
+	height:11rem;
+	    max-width: 28%;
+		padding-top:1em;
+		margin:1rem 0 0 2rem;
+		box-shadow:0px 0px 19px 0px rgba(0,0,0,0.75);
+			z-index:0;
+}
+#text{
+display:none;
+}
+
+	</style>
+</head>
+<body background="background.png">
+
+	<div class="main ml-100">
+		<div id="circularMenu1" class="circular-menu circular-menu-left">
+			<a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
+				<i class="fa fa-bars"></i>
+			</a>
+			<menu class="items-wrapper">
+				<a href="#about" class="menu-item" ><img onclick="about()" src="about_me.png"></a>
+				<a href="#education" class="menu-item"><img onclick="education()" src="education.png"></a>
+				<a href="#work" class="menu-item"><img onclick="work()" src="work.png"></a>
+				<a href="#skills" class="menu-item"><img onclick="skills()" src="skills.png"></a>
+				<a href="#achievements" class="menu-item"><img onclick="achieve()" src="achievements.png"></a>
+				<a href="#contact" class="menu-item"><img onclick="contact()" src="contact.png"></a>
+				<a href="#portfolio" class="menu-item"><img onclick="portfolio()" src="portfolio.png"></a>
+			</menu>
+		</div>
+	</div>
+	<div id="Data">
+		<img src="gree.jpg" class="Avatar" >
+		<div class="Details">
+			<h3>Hello Guys, I am <strong>Greeshma Pillai</strong></h3>
+			<p class="color">Working as a software engineer/Tester</p>
+		</div>
+	</div>
+
+<div id="about">
+	<div class="White container">
+		<h3 class="title">ABOUT ME</h3>
+		<p class="color subtitle"> I am versatile, creative, detailed-oriented individual, looking to work as a Software Engineer. Offering expertise in Front-end UI Development.</p>
+		<p class="sub_text1">I can develop User Interface of a website using Html, Css and the framework of Css mainly Bootstrap. Also I have experience of Testing the applications :UI Testing, Peer testing, Application Testing, Feature testing
+			Also i have an experience of testing in all main browsers like Chrome, Edge, Internet Explorer, Safari, Firefox etc
+			<h6 class="subtitle">PERSONAL INFORMATION</h6>
+			<hr>
+			<div class="container">
+				<div class="col-lg-12 row">
+					<div class="col-lg-4">
+						<strong class="sub_text1">Name:</strong><br><p class="sub_text2">Greeshma Pillai</p>
+					</div>
+					<div class="col-lg-4">
+						<strong class="sub_text1">Birth Date:</strong><br><p class="sub_text2">01 June 1994</p>
+					</div>
+					<div class="col-lg-4">
+						<strong class="sub_text1">Email:</strong><br><p class="sub_text2">pillai.greeshma16@gmail.com</p>
+					</div>
+				</div>
+			</div><br><br>
+			<div class="container">
+				<div class="col-lg-12 row">
+					<div class="col-lg-4">
+						<strong class="sub_text1">Marital Status:</strong><br><p class="sub_text2">Unmarried</p>
+					</div>
+					<div class="col-lg-4">
+						<strong class="sub_text1">Nationality:</strong><br><p class="sub_text2">Indian</p>
+					</div>
+					<div class="col-lg-4">
+						<strong class="sub_text1">Place:</strong><br><p class="sub_text2">Mumbai,Maharashtra</p>
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+
+<div id="education">
+	<div class="White container">
+		<h3 class="title">EDUCATION</h3>
+
+<div class="container">
+	<div class="row ht">
+		<div class="col-md-12 col-sm-12 col-xs-12 padd">
+			<section class="main-timeline-section">
+			    <div class="timeline-start"></div>
+			    <div class="conference-center-line"></div>
+			    <div class="conference-timeline-content">
+				    <div class="timeline-article timeline-article-top">
+				    </div>
+
+				    <div class="timeline-article timeline-article-bottom">
+				        <div class="content-date">
+			          		<span>2016</span>
+				        </div>
+				        <div class="meta-date"></div>
+				        <div class="content-box cent">
+				        	<p>Bachelor's degree in EXTC,S.I.E.S<br><span class="color">CGPA: 8.16</span></p>
+				        </div>
+				    </div>
+			      	 <div class="timeline-article timeline-article-top">
+				        <div class="content-date">
+			          		<span>2012</span>
+				        </div>
+				        <div class="meta-date"></div>
+				        <div class="content-box cent">
+				        	<p>New English School,Kalwa,Thane<br><span class="color">85.83%</span></p>
+				        </div>
+				    </div>
+
+				    <div class="timeline-article timeline-article-bottom">
+				        <div class="content-date">
+			          		<span>2010</span>
+				        </div>
+				        <div class="meta-date"></div>
+				        <div class="content-box cent">
+				        	<p>Bhavika Vidyalaya,Kharegaon<br><span class="color">90.36%</span></p>
+				        </div>
+				    </div>
+			   	</div>
+			   	<div class="timeline-end"></div>
+		  	</section>
+		</div>
+	</div>
+</div>
+
+
+
+		<div class=container>
+			<h6 class="subtitle">Academic Mini Projects</h6>
+			<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 box">
+
+					<h5 class="sub_text2 color">Automatic Solar Powered Vaccum Cleaner</h5>
+	 				<p class="sub_text3">This project is designed to work as a simple vaccum cleaner but automatically with very less human effort.</p>
+
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 card box">
+
+					<h5 class="sub_text2 color">Electronic letter box with letter counting capacity</h5>
+	 				<p class="sub_text3">Dtects the presence and absence of the letter along with the number of letters present inside.
+					<br><strong>Published on 'Electronics For You' Magazine, 2014</strong></p>
+
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 card box">
+
+					<h5 class="sub_text2 color">FM Transmitter</h5>
+	 				<p class="sub_text3">This project is designed to transmit  the voice over audio over an ordinary FM radio within the FM broadcast band.</p>
+
+			</div>
+
+		</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="work">
+	<div class="White container">
+		<h3 class="title">WORK</h3>
+		<p><strong class="subtitle">Tester and Developer</strong></p>
+		<p class="color"><strong class="sub_text1">Tata Consultancy Services, Pune-411057 (28 December 2016-Present) </strong></p>
+		<div class="container">
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">Agile Environment</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">Responsive Web Frameworks</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">Perform browser Testing and Debugging</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">Cross Browser Compatibility</p></div>
+		</div>
+	</div>
+</div>
+
+<div id="skills">
+	<div class="White container">
+		<h3 class="title">SKILLS</h3>
+		<div class="container">
+		<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<h5 class="subtitle">Primary Skills</h5>
+		<div class="container">
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">HTML5</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">CSS3</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">BOOTSTRAP</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">JAVASCRIPT</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">JSON</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">MANUAL TESTING</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">WEB GROOVY AUTOMATION TESTING</p></div>
+		</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<h5 class="subtitle">Other Tools</h5>
+		<div class="container">
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">MICROSOFT EXCEL</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">MICROSOFT POWERPOINT</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">MICROSOFT WORD</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">JIRA</p></div>
+		<div class="row"><img src="tick_mark.png"><p class="sub_text2">ALM</p></div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div id="achievements">
+	<div class="White container">
+		<h3 class="title">PROFESSIONAL ACHIEVEMENTS</h3>
+		<div class="container">
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Worked in both Agile and Waterfall Settings</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Tested front-end code in multiple browsers to ensure cross-browser compatibility</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Leveraged Responsive Web frameworks to consistently complete product deliverables ahead of schedule</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Web page developement from design to test and upto production deployement</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Perform browser testing and debugging</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Create browser and platform compatible CSS codes</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Worked closely with design team and product managers and ensured projects are delivered in a timely manner</p></div>
+			<div class="row"><img src="tick_mark.png"><p class="sub_text2">Converted photoshop layouts to web pages using HTML,CSS and JAVASCRIPT</p></div>
+
+		 </div>
+	</div>
+</div>
+
+<div id="contact">
+	<div class="White container">
+		<h3 class="title">CONTACT</h3>
+		<div class="col-lg-12 col-md-12 row">
+		<img class="image" src="call.png"> <img class="image1" src="mail.png"> <img class="image2" src="address.png"></div>
+		<div class="col-lg-12 col-md-12 row">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 card p-0">
+				<div class="card-body text-center p-0">
+					<h5 class="card-title"><strong class="sub_text1">MOBILE</strong></h5>
+	 				<p class="card-text"><strong class="sub_text2">9920738459</strong></p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 card p-0">
+				<div class="card-body text-center p-0">
+					<h5 class="card-title"><strong class="sub_text1">EMAIL</strong></h5>
+	 				<p class="card-text"><strong class="sub_text2">pillai.greeshma16@gmail.com</strong></p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 card p-0">
+				<div class="card-body text-center p-0">
+					<h5 class="card-title"><strong class="sub_text1">ADDRESS</strong></h5>
+	 				<p class="card-text"><strong class="sub_text2">B1-304, Atlanta Apartments1,Behind Naturals Ice Cream,Hinjewadi Flyover,Wakad,Pune-411057</strong></p>
+				</div>
+			</div>
+		</div>
+		<div class="row socialmedia">
+			<img data-toggle="tooltip" data-placement="top" title="Facebook" src="facebook.png">
+			<img data-toggle="tooltip" data-placement="top" title="Google" src="google.png">
+			<img data-toggle="tooltip" data-placement="top" title="Instagram" src="insta.png">
+			<img data-toggle="tooltip" data-placement="top" title="https://www.linkedin.com/in/greeshma-pillai-75406690" src="linkedin.png">
+			</div>
+	</div>
+</div>
+
+<div id="portfolio">
+	<div class="White container port">
+	<div>
+		<h3 class="title">PORTFOLIO</h3>
+		<p class="color title marg"><strong>https://github.com/pillaigreeshma/pillaigreeshma.github.io</strong></p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+		function about() {
+		 var about = document.getElementById('about');
+		 if (about.style.display == 'block') {
+		 about.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 about.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		function education() {
+		 var education = document.getElementById('education');
+		 if (education.style.display == 'block') {
+		 education.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 education.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		function work() {
+		 var work = document.getElementById('work');
+		 if (work.style.display == 'block') {
+		 work.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 Data.style.display='none';
+		 work.style.display = 'block';
+		 }
+		}
+
+		function skills() {
+		 var skills = document.getElementById('skills');
+		 if (skills.style.display == 'block') {
+		 skills.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 skills.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		function achieve() {
+		 var achieve = document.getElementById('achievements');
+		 if (achieve.style.display == 'block') {
+		 achieve.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 achieve.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		function contact() {
+		 var contact = document.getElementById('contact');
+		 if (contact.style.display == 'block') {
+		 contact.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 contact.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		function portfolio() {
+		 var portfolio = document.getElementById('portfolio');
+		 if (portfolio.style.display == 'block') {
+		 portfolio.style.display = 'none';
+		 Data.style.display='block';
+		 } else {
+		 portfolio.style.display = 'block';
+		 Data.style.display='none';
+		 }
+		}
+
+		$(document).ready(function() {
+  $("#toggle").click(function() {
+    var elem = $("#toggle").text();
+    if (elem == "Read more") {
+      //Stuff to do when btn is in the read more state
+      $("#toggle").text("Read less");
+      $("#text").slideDown();
+    } else {
+      //Stuff to do when btn is in the read less state
+      $("#toggle").text("Read more");
+      $("#text").slideUp();
+    }
+  });
+});
+</script>
+</body>
+</html>
