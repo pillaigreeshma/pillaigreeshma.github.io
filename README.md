@@ -1,8 +1,7 @@
-# pillaigreeshma.github.io
+# Frontend
 
 Hey Guys,
 
-This is me a newbie. 
 This contains just my project samples.
 Till now oly used HTML,CSS and Bootstrap.
 There are 2 Websites i made, if u wish to view any the go to:
