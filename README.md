@@ -1,7 +1,5 @@
 # Frontend
 
-Hey Guys,
-
 This contains just my project samples.
 Till now oly used HTML,CSS and Bootstrap.
 There are 2 Websites i made, if u wish to view any the go to:
